@@ -1,0 +1,10 @@
+{
+  "name": "Club de Empresas Rojillo - Networking B2B",
+  "description": "Plataforma privada y exclusiva de gestión y networking empresarial con identidad Rojilla (C.A. Osasuna). Acceso para socios, patrocinadores y directores con eventos, check-in QR y oportunidades B2B.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

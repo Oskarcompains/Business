@@ -1,0 +1,118 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "Usuarios miembros y directivos del club de empresas",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "role": { "type": "string", "enum": ["SUPERADMIN", "ADMIN", "EMPRESA", "REPRESENTANTE", "PATROCINADOR", "INVITADO"] },
+        "avatar": { "type": "string" },
+        "position": { "type": "string" },
+        "companyId": { "type": "string" },
+        "companyName": { "type": "string" },
+        "bio": { "type": "string" },
+        "phone": { "type": "string" },
+        "linkedin": { "type": "string" },
+        "joinedAt": { "type": "string" },
+        "isOnline": { "type": "boolean" }
+      },
+      "required": ["id", "name", "email", "role", "companyName"]
+    },
+    "Company": {
+      "title": "Company",
+      "description": "Empresas socias y patrocinadoras del Club",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "sector": { "type": "string" },
+        "tier": { "type": "string" },
+        "description": { "type": "string" },
+        "website": { "type": "string" },
+        "location": { "type": "string" },
+        "logo": { "type": "string" },
+        "employeesCount": { "type": "number" },
+        "joinedAt": { "type": "string" }
+      },
+      "required": ["id", "name", "sector", "tier"]
+    },
+    "ClubEvent": {
+      "title": "ClubEvent",
+      "description": "Eventos y encuentros empresariales del Club",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "type": { "type": "string" },
+        "status": { "type": "string" },
+        "date": { "type": "string" },
+        "time": { "type": "string" },
+        "location": { "type": "string" },
+        "capacity": { "type": "number" },
+        "bannerImage": { "type": "string" }
+      },
+      "required": ["id", "title", "date", "time", "location", "capacity"]
+    },
+    "EventRegistration": {
+      "title": "EventRegistration",
+      "description": "Inscripciones a eventos con código de pase QR",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "eventId": { "type": "string" },
+        "userId": { "type": "string" },
+        "userName": { "type": "string" },
+        "userEmail": { "type": "string", "format": "email" },
+        "userCompany": { "type": "string" },
+        "userRole": { "type": "string" },
+        "registeredAt": { "type": "string" },
+        "status": { "type": "string", "enum": ["Inscrito", "Confirmado", "Asistente", "No presentado", "Cancelado"] },
+        "ticketCode": { "type": "string" },
+        "hasCompanion": { "type": "boolean" },
+        "companionName": { "type": "string" },
+        "checkedInAt": { "type": "string" }
+      },
+      "required": ["id", "eventId", "userId", "ticketCode", "status"]
+    },
+    "MembershipApplication": {
+      "title": "MembershipApplication",
+      "description": "Solicitudes de adhesión de nuevas empresas socias",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "companyName": { "type": "string" },
+        "sector": { "type": "string" },
+        "contactName": { "type": "string" },
+        "contactRole": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "phone": { "type": "string" },
+        "motivation": { "type": "string" },
+        "tierRequested": { "type": "string" },
+        "submittedAt": { "type": "string" },
+        "status": { "type": "string", "enum": ["PENDIENTE", "APROBADA", "RECHAZADA"] }
+      },
+      "required": ["id", "companyName", "email", "status"]
+    },
+    "EmailLog": {
+      "title": "EmailLog",
+      "description": "Historial de correos electrónicos de confirmación enviados",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "to": { "type": "string", "format": "email" },
+        "recipientName": { "type": "string" },
+        "subject": { "type": "string" },
+        "type": { "type": "string", "enum": ["EVENT_CONFIRMATION", "MEMBERSHIP_APPLICATION", "MEMBERSHIP_APPROVED", "WELCOME_NEW_USER"] },
+        "status": { "type": "string", "enum": ["SENT", "PENDING", "FAILED"] },
+        "sentAt": { "type": "string" },
+        "bodyText": { "type": "string" },
+        "ticketCode": { "type": "string" }
+      },
+      "required": ["id", "to", "subject", "type", "status", "sentAt"]
+    }
+  }
+}

@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    background-color: #070d1e;
+    color: #f1f5f9;
+  }
+}
+
+/* Osasuna Palette Utilities */
+:root {
+  --osasuna-red: #c8102e;
+  --osasuna-red-dark: #991b1b;
+  --osasuna-red-light: #ef4444;
+  --osasuna-blue-deep: #070d1e;
+  --osasuna-blue-surface: #0c1734;
+  --osasuna-blue-card: #101e42;
+  --osasuna-blue-border: #1d346b;
+  --osasuna-gold: #f59e0b;
+}
+
+/* Custom scrollbar styled with Osasuna navy and red touch */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(7, 13, 30, 0.9);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(29, 52, 107, 0.8);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(200, 16, 46, 0.7);
+}
+
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 16px);
+}
+

@@ -1,0 +1,19 @@
+{
+  "id": "/",
+  "name": "Club de Empresas Rojillo - Networking B2B",
+  "short_name": "ClubRojillo",
+  "description": "Plataforma privada y exclusiva para la gestión del club de empresas, networking, eventos y oportunidades B2B.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#070d1e",
+  "theme_color": "#070d1e",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
