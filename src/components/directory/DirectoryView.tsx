@@ -8,12 +8,14 @@ import {
   MapPin, 
   SlidersHorizontal,
   X,
-  Award
+  Award,
+  FileSpreadsheet
 } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
 import { CompanyCard } from './CompanyCard';
 import { CompanyDetailModal } from './CompanyDetailModal';
 import { EditCompanyModal } from './EditCompanyModal';
+import { GoogleSheetsSyncModal } from '../sheets/GoogleSheetsSyncModal';
 import { Company } from '../../types';
 
 export const DirectoryView: React.FC = () => {
@@ -42,6 +44,7 @@ export const DirectoryView: React.FC = () => {
   });
   const [editingCompany, setEditingCompany] = useState<Company | null>(null);
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
+  const [isSheetsModalOpen, setIsSheetsModalOpen] = useState(false);
 
   // Connected state simulation
   const [connectedCompanyIds, setConnectedCompanyIds] = useState<string[]>(['comp-2']);
@@ -120,16 +123,29 @@ export const DirectoryView: React.FC = () => {
           </p>
         </div>
 
-        {isAdmin && (
-          <button
-            id="btn-add-company"
-            onClick={() => setIsCreateModalOpen(true)}
-            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-red-700 to-red-600 hover:from-red-600 hover:to-red-500 text-white font-bold text-xs sm:text-sm shadow-md transition shrink-0"
-          >
-            <PlusCircle className="w-4 h-4" />
-            <span>Añadir Empresa</span>
-          </button>
-        )}
+        <div className="flex items-center gap-2">
+          {isAdmin && (
+            <>
+              <button
+                id="btn-sync-sheets-companies"
+                onClick={() => setIsSheetsModalOpen(true)}
+                className="flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-emerald-950/80 hover:bg-emerald-900/90 text-emerald-300 hover:text-emerald-200 border border-emerald-500/40 text-xs sm:text-sm font-bold shadow-md transition cursor-pointer"
+              >
+                <FileSpreadsheet className="w-4 h-4 text-emerald-400" />
+                <span>Google Sheets</span>
+              </button>
+
+              <button
+                id="btn-add-company"
+                onClick={() => setIsCreateModalOpen(true)}
+                className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-red-700 to-red-600 hover:from-red-600 hover:to-red-500 text-white font-bold text-xs sm:text-sm shadow-md transition shrink-0 cursor-pointer"
+              >
+                <PlusCircle className="w-4 h-4" />
+                <span>Añadir Empresa</span>
+              </button>
+            </>
+          )}
+        </div>
       </div>
 
       {/* Search and Filters Bar */}
@@ -270,6 +286,14 @@ export const DirectoryView: React.FC = () => {
             setEditingCompany(null);
           }}
           onSave={handleSaveCompany}
+        />
+      )}
+
+      {/* Google Sheets Sync Modal */}
+      {isSheetsModalOpen && (
+        <GoogleSheetsSyncModal 
+          mode="companies"
+          onClose={() => setIsSheetsModalOpen(false)}
         />
       )}
 

@@ -11,13 +11,15 @@ import {
   ArrowRight,
   Filter,
   Sparkles,
-  Download
+  Download,
+  FileSpreadsheet
 } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
 import { ClubEvent, EventRegistration, EventType } from '../../types';
 import { EventDetailModal } from './EventDetailModal';
 import { EventTicketModal } from './EventTicketModal';
 import { CreateEventModal } from './CreateEventModal';
+import { GoogleSheetsSyncModal } from '../sheets/GoogleSheetsSyncModal';
 
 export const EventsView: React.FC = () => {
   const { 
@@ -43,6 +45,7 @@ export const EventsView: React.FC = () => {
   });
   const [ticketModalData, setTicketModalData] = useState<{ event: ClubEvent; registration: EventRegistration } | null>(null);
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
+  const [isSheetsModalOpen, setIsSheetsModalOpen] = useState(false);
 
   // My registered events
   const myRegistrations = registrations.filter(r => r.userId === currentUser.id);
@@ -102,14 +105,25 @@ export const EventsView: React.FC = () => {
 
         <div className="flex items-center gap-2">
           {isAdmin && (
-            <button
-              id="btn-admin-create-event"
-              onClick={() => setIsCreateModalOpen(true)}
-              className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-red-700 to-red-600 hover:from-red-600 hover:to-red-500 text-white font-bold text-xs sm:text-sm shadow-md transition"
-            >
-              <PlusCircle className="w-4 h-4" />
-              <span>Crear Evento</span>
-            </button>
+            <>
+              <button
+                id="btn-sync-sheets-events"
+                onClick={() => setIsSheetsModalOpen(true)}
+                className="flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-emerald-950/80 hover:bg-emerald-900/90 text-emerald-300 hover:text-emerald-200 border border-emerald-500/40 text-xs sm:text-sm font-bold shadow-md transition cursor-pointer"
+              >
+                <FileSpreadsheet className="w-4 h-4 text-emerald-400" />
+                <span>Google Sheets</span>
+              </button>
+
+              <button
+                id="btn-admin-create-event"
+                onClick={() => setIsCreateModalOpen(true)}
+                className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-red-700 to-red-600 hover:from-red-600 hover:to-red-500 text-white font-bold text-xs sm:text-sm shadow-md transition"
+              >
+                <PlusCircle className="w-4 h-4" />
+                <span>Crear Evento</span>
+              </button>
+            </>
           )}
           <button
             onClick={() => setActiveView('checkin')}
@@ -342,6 +356,14 @@ export const EventsView: React.FC = () => {
           isOpen={isCreateModalOpen}
           onClose={() => setIsCreateModalOpen(false)}
           onCreate={(data) => addEvent(data)}
+        />
+      )}
+
+      {/* Google Sheets Sync Modal */}
+      {isSheetsModalOpen && (
+        <GoogleSheetsSyncModal 
+          mode="events"
+          onClose={() => setIsSheetsModalOpen(false)}
         />
       )}
 

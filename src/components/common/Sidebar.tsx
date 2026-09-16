@@ -135,13 +135,13 @@ export const Sidebar: React.FC = () => {
       {/* Quick Action Helper */}
       <div className="mt-auto pt-4 border-t border-[#182a52] text-[11px] text-slate-400 flex flex-col gap-1">
         <div className="flex items-center justify-between">
-          <span>Club de Empresas Rojillo</span>
+          <span className="font-semibold text-slate-300">Ibarbaso Business Club</span>
           <span className="text-emerald-400 font-medium flex items-center gap-1">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" /> PWA Activa
           </span>
         </div>
         <p className="text-[10px] text-slate-400">
-          Red empresarial verificada y confidencial.
+          C.D. Soto-Ibarbaso • Red empresarial verificada.
         </p>
       </div>
 

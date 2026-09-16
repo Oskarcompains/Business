@@ -86,24 +86,26 @@ export const Header: React.FC = () => {
           <div 
             id="brand-logo-btn"
             onClick={() => setActiveView('companies')}
-            className="flex items-center gap-2.5 cursor-pointer select-none group shrink-0"
+            className="flex items-center gap-3 cursor-pointer select-none group shrink-0"
           >
-            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-red-700 via-red-600 to-red-500 p-0.5 shadow-lg shadow-red-900/30 group-hover:scale-105 transition">
-              <div className="w-full h-full bg-[#070d1e] rounded-[10px] flex items-center justify-center">
-                <Crown className="w-5 h-5 text-red-500" />
-              </div>
+            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-tr from-red-800 via-red-600 to-black p-0.5 shadow-lg shadow-red-950/60 group-hover:scale-105 transition overflow-hidden">
+              <img 
+                src="/ibarbaso-crest.jpg" 
+                alt="Ibarbaso Crest" 
+                className="w-full h-full object-cover rounded-[10px]"
+              />
             </div>
             <div>
               <div className="flex items-center gap-1.5">
-                <span className="font-extrabold tracking-tight text-white text-base sm:text-lg">
-                  Club<span className="text-red-500">Rojillo</span>
+                <span className="font-black tracking-tight text-white text-base sm:text-lg">
+                  IBARBASO <span className="text-red-500 font-extrabold">BUSINESS CLUB</span>
                 </span>
-                <span className="text-[10px] font-black px-1.5 py-0.2 rounded bg-red-600/20 text-red-300 border border-red-500/40 hidden xs:inline-block">
-                  B2B
+                <span className="text-[10px] font-black px-1.5 py-0.5 rounded bg-red-600/20 text-red-300 border border-red-500/40 hidden xs:inline-block">
+                  C.D. SOTO
                 </span>
               </div>
               <p className="text-[11px] text-slate-400 hidden sm:block -mt-0.5">
-                Club de Empresas • Red Privada
+                Ecosistema B2B & Red Empresarial Privada
               </p>
             </div>
           </div>

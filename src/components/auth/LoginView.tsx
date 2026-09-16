@@ -94,25 +94,25 @@ export const LoginView: React.FC = () => {
       {/* Top Bar Header */}
       <header className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between border-b border-[#18284e]/70">
         <div className="flex items-center gap-3">
-          {/* Osasuna Crest Monogram */}
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-red-600 via-[#c8102e] to-red-800 p-0.5 shadow-lg shadow-red-900/40">
-            <div className="w-full h-full bg-[#0a1329] rounded-[10px] flex items-center justify-center">
-              <span className="font-extrabold text-sm tracking-tight text-white flex items-center gap-0.5">
-                <span className="text-red-500 font-black">C</span>E
-              </span>
-            </div>
+          {/* Ibarbaso Crest Monogram */}
+          <div className="w-11 h-11 rounded-xl bg-gradient-to-tr from-red-800 via-red-600 to-black p-0.5 shadow-lg shadow-red-950/60 overflow-hidden">
+            <img 
+              src="/ibarbaso-crest.jpg" 
+              alt="Ibarbaso Crest" 
+              className="w-full h-full object-cover rounded-[10px]"
+            />
           </div>
           <div>
             <div className="flex items-center gap-1.5">
-              <span className="font-extrabold tracking-tight text-white text-base sm:text-lg">
-                Club de Empresas <span className="text-red-500">Rojillo</span>
+              <span className="font-black tracking-tight text-white text-base sm:text-lg">
+                IBARBASO <span className="text-red-500 font-extrabold">BUSINESS CLUB</span>
               </span>
-              <span className="text-[10px] font-black px-1.5 py-0.5 rounded bg-red-600/20 text-red-400 border border-red-500/30">
-                PRIVADO
+              <span className="text-[10px] font-black px-1.5 py-0.5 rounded bg-red-600/20 text-red-300 border border-red-500/40">
+                C.D. SOTO
               </span>
             </div>
             <p className="text-[11px] text-slate-400 -mt-0.5">
-              Red Empresarial & Ecosistema B2B
+              Red Empresarial Privada & Ecosistema B2B
             </p>
           </div>
         </div>
@@ -304,9 +304,9 @@ export const LoginView: React.FC = () => {
       {/* Footer */}
       <footer className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 border-t border-[#18284e]/70 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-400">
         <div className="flex items-center gap-2">
-          <span>© {new Date().getFullYear()} Club de Empresas Rojillo</span>
+          <span>© {new Date().getFullYear()} Ibarbaso Business Club</span>
           <span>•</span>
-          <span className="text-red-400 font-semibold">C.A. Osasuna B2B Network</span>
+          <span className="text-red-400 font-semibold">C.D. Soto-Ibarbaso B2B Network</span>
         </div>
         <div className="flex items-center gap-4 text-[11px]">
           <span className="text-emerald-400 font-medium flex items-center gap-1">
